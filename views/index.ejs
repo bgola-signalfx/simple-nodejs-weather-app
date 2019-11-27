@@ -5,6 +5,21 @@
     <title>Test</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript">
+    (function (w, d, s, sn, on, ne, fse) {
+      w['McgUxmObj'] = on; w[on] = w[on] || function () {(w[on].iargs = w[on].iargs || []).push(arguments)}, w[on].jsst = 1 * new Date();
+      ne = d.createElement(s), fse = d.getElementsByTagName(s)[0]; ne.async = 1; ne.src = sn; fse.parentNode.insertBefore(ne, fse)
+    })(window, document, 'script', '//repo.mcg.dk/uxm/web/beta/uxm_web_agent.debug.js', 'uxm_web');
+    uxm_web('server', 'uxm-uat.mcg.dk');
+    uxm_web('key', 'microservice-demo-site-nodejs');
+    uxm_web('xhr.capture', true);
+    uxm_web('resource.timings.threshold.min', 0);
+    uxm_web('resource.timings.capture.max', 250);
+    uxm_web('resource.timings.clear', false);
+    uxm_web('trace.id', '<%= traceID %>');
+    </script>
+
   </head>
   <body>
     <div class="container">
