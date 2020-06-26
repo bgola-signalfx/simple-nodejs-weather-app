@@ -19,9 +19,13 @@ if (!apiKey) {
   process.exit(1)
 }
 
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
-app.set('view engine', 'ejs');
+app.use(function (req, res, next) {
+  res.set('x-dynaTrace', req.sfx.traceId); // <-- pass-on the trace ID in the header field for synthetic monitoring
+  next();
+});
 
 app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null, traceID: req.sfx.traceId}); // <-- this is where trace ID is passed on to the view layer
