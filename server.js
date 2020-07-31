@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(function (req, res, next) {
-  res.set('x-dynaTrace', req.sfx.traceId); // <-- pass-on the trace ID in the header field for synthetic monitoring
+  res.set('signalfx-trace', req.sfx.traceId); // <-- pass-on the trace ID in the header field for synthetic monitoring
   next();
 });
 
